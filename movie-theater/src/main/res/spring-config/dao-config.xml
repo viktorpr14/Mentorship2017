@@ -5,10 +5,10 @@
  		http://www.springframework.org/schema/beans
  		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
  	
- 	<bean id = "userDao" class="com.epam.spring.core.movietheater.dao.UserDao"/>
-	<bean id = "eventDao" class="com.epam.spring.core.movietheater.dao.EventDao"/>
-	<bean id = "ticketDao" class="com.epam.spring.core.movietheater.dao.TicketDao"/>
-	<bean id = "auditoriumDao" class="com.epam.spring.core.movietheater.dao.AuditoriumDao">
+ 	<bean id = "userDao" class="com.epam.spring.core.movietheater.dao.impl.UserDaoImpl"/>
+	<bean id = "eventDao" class="com.epam.spring.core.movietheater.dao.impl.EventDaoImpl"/>
+	<bean id = "ticketDao" class="com.epam.spring.core.movietheater.dao.impl.TicketDaoImpl"/>
+	<bean id = "auditoriumDao" class="com.epam.spring.core.movietheater.dao.impl.AuditoriumDaoImpl">
 		<constructor-arg>
 			<list>
 				<ref bean="silverAuditorium"/>

@@ -7,8 +7,6 @@ public class Auditorium {
 	private List<Integer> usualSeatNumbers;
 	private List<Integer> vipSeatNumbers;
 	
-	
-	
 	public Auditorium(String name, List<Integer> usualSeatNumbers, List<Integer> vipSeatNumbers) {
 		super();
 		this.name = name;

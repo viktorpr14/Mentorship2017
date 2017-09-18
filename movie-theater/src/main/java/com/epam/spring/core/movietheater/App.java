@@ -1,11 +1,8 @@
 package com.epam.spring.core.movietheater;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.epam.spring.core.movietheater.dao.UserDao;
-import com.epam.spring.core.movietheater.model.User;
-import com.epam.spring.core.movietheater.service.BookingService;
+import com.epam.spring.core.movietheater.service.impl.BookingServiceImpl;
 
 public class App 
 {
@@ -14,6 +11,6 @@ public class App
     	ClassPathXmlApplicationContext context = 
     			new ClassPathXmlApplicationContext("spring-config\\app-config.xml");
     	
-    	System.out.println(context.getBean(BookingService.class));
+    	System.out.println(context.getBean(BookingServiceImpl.class));
     }
 }

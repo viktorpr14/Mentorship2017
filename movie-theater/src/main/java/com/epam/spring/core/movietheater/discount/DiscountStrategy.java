@@ -1,4 +1,4 @@
-package com.epam.spring.core.movietheater.service.discount;
+package com.epam.spring.core.movietheater.discount;
 
 import com.epam.spring.core.movietheater.model.Event;
 import com.epam.spring.core.movietheater.model.User;

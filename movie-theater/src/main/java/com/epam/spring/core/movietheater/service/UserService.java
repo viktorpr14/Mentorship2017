@@ -2,33 +2,18 @@ package com.epam.spring.core.movietheater.service;
 
 import java.util.List;
 
-import com.epam.spring.core.movietheater.dao.UserDao;
 import com.epam.spring.core.movietheater.model.User;
 
-public class UserService {
-	private UserDao userDao;
-	
-	public UserService(UserDao userDao) {
-		this.userDao = userDao;
-	}
-	
-	public int save(User user) {
-		return userDao.save(user);
-	}
+public interface UserService {
 
-	public void remove(int userId) {
-		userDao.remove(userId);
-	}
+	int save(User user);
 
-	public User getById(int userId) {
-		return userDao.getById(userId);
-	}
+	void remove(int userId);
 
-	public User getUsByEmail(String email) {
-		return userDao.getUserByEmail(email);
-	}
+	User getById(int userId);
 
-	public List<User> getAll() {
-		return userDao.getAll();
-	}
+	User getUsByEmail(String email);
+
+	List<User> getAll();
+
 }

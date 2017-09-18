@@ -8,22 +8,22 @@
  				http://www.springframework.org/schema/util
  				http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
-	<bean id="userService" class="com.epam.spring.core.movietheater.service.UserService"
+	<bean id="userService" class="com.epam.spring.core.movietheater.service.impl.UserServiceImpl"
 		c:userDao-ref="userDao" />
 
-	<bean id="eventService" class="com.epam.spring.core.movietheater.service.EventService">
+	<bean id="eventService" class="com.epam.spring.core.movietheater.service.impl.EventServiceImpl">
 		<constructor-arg ref="eventDao" />
 	</bean>
 
-	<bean id="ticketService" class="com.epam.spring.core.movietheater.service.TicketService">
+	<bean id="ticketService" class="com.epam.spring.core.movietheater.service.impl.TicketServiceImpl">
 		<constructor-arg ref="ticketDao" />
 	</bean>
 
-	<bean id="auditoriumService" class="com.epam.spring.core.movietheater.service.AuditoriumService">
+	<bean id="auditoriumService" class="com.epam.spring.core.movietheater.service.impl.AuditoriumServiceImpl">
 		<constructor-arg ref="auditoriumDao" />
 	</bean>
 	
-	<bean id="bookingService" class="com.epam.spring.core.movietheater.service.BookingService">
+	<bean id="bookingService" class="com.epam.spring.core.movietheater.service.impl.BookingServiceImpl">
 		<constructor-arg ref="auditoriumService" />
 		<constructor-arg ref="ticketService"/>
 		<constructor-arg ref="discountService"/>
