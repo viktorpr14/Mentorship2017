@@ -10,6 +10,10 @@
 	<import resource="classpath:spring-config/discount-config.xml" />
 	<import resource="classpath:spring-config/auditoriums.xml" />
 
+	<bean class="com.epam.spring.core.movietheater.annotation.SurgeAnnotationBeanPostProcessor"/>
+	
+	
+
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">

@@ -12,5 +12,6 @@ public class App
     			new ClassPathXmlApplicationContext("spring-config\\app-config.xml");
     	
     	System.out.println(context.getBean(BookingServiceImpl.class));
+    	System.out.println(((BookingServiceImpl)context.getBean("bookingService")).getHighRatingSurge());
     }
 }
