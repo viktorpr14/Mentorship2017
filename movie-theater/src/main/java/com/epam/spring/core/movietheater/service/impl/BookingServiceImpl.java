@@ -2,6 +2,7 @@ package com.epam.spring.core.movietheater.service.impl;
 
 import java.util.List;
 
+import com.epam.spring.core.movietheater.annotation.Surge;
 import com.epam.spring.core.movietheater.model.Auditorium;
 import com.epam.spring.core.movietheater.model.Event;
 import com.epam.spring.core.movietheater.model.EventRating;
@@ -13,8 +14,11 @@ import com.epam.spring.core.movietheater.service.DiscountService;
 import com.epam.spring.core.movietheater.service.TicketService;
 
 public class BookingServiceImpl implements BookingService {
-	private double VIP_SEAT_SURGE = 1.2;
-	private double HIGH_RATING_SURGE = 2.0;
+	@Surge("vipSeat")
+	private double vipSeatSurge;
+	
+	@Surge("highRating")
+	private double highRatingSurge;
 
 	private AuditoriumService auditoriumService;
 	private DiscountService discountService;
@@ -59,12 +63,23 @@ public class BookingServiceImpl implements BookingService {
 
 		double adjustedPrice = basePrice;
 		if (vipSeats.contains(seat))
-			adjustedPrice *= VIP_SEAT_SURGE;
+			adjustedPrice *= vipSeatSurge;
 		if (EventRating.HIGH.equals(rating))
-			adjustedPrice *= HIGH_RATING_SURGE;
+			adjustedPrice *= highRatingSurge;
 
 		return adjustedPrice;
 	}
 
+
+	public double getVipSeatSurge() {
+		return vipSeatSurge;
+	}
+
+
+	public double getHighRatingSurge() {
+		return highRatingSurge;
+	}
+
+	
 
 }
