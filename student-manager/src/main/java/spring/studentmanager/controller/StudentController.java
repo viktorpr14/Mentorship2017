@@ -30,17 +30,11 @@ public class StudentController {
 		Student foundStudent = students.stream()
 				.filter(s->s.getId()==studentId)
 				.findFirst().orElse(null);
-		if(foundStudent != null) {
-			return new ResponseEntity<>(foundStudent, HttpStatus.OK);
-		}
-		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(foundStudent, HttpStatus.OK);
 	}
-	@RequestMapping(method=RequestMethod.GET, path="/students/")
+	@RequestMapping(method=RequestMethod.GET, path="/students")
 	public ResponseEntity<List<Student>> findAll() {
-		if(!students.isEmpty()) {
-			return new ResponseEntity<>(students, HttpStatus.OK);
-		}
-		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(students, HttpStatus.OK);
 	}
 	@RequestMapping(method=RequestMethod.DELETE, path="/students/{studentId}")
 	public ResponseEntity<Student> deleteById(@PathVariable int studentId) {
@@ -49,9 +43,8 @@ public class StudentController {
 				.findFirst().orElse(null);
 		if(student != null) {
 			students.removeIf(s->s.getId()==studentId);
-			return new ResponseEntity<>(student, HttpStatus.OK);
 		}
-		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(student, HttpStatus.OK);
 	}
 	@RequestMapping(method=RequestMethod.PUT, path="/students/{studentId}")
 	public ResponseEntity<Student> updateById(@PathVariable int studentId, @RequestBody Student newStudent) {
@@ -63,8 +56,7 @@ public class StudentController {
 			student.setLastName(newStudent.getLastName());
 			student.setInstName(newStudent.getInstName());
 			student.setCourseNum(newStudent.getCourseNum());
-			return new ResponseEntity<>(student, HttpStatus.OK);
 		}
-		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(student, HttpStatus.OK);
 	}
 }
