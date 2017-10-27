@@ -28,5 +28,4 @@ public class Student {
 	private String instName;
 	@Column(name="course_num")
 	private String courseNum;
-	
 }

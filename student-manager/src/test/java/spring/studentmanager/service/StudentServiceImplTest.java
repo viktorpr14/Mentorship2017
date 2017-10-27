@@ -1,16 +1,17 @@
 package spring.studentmanager.service;
 
-import org.hibernate.validator.internal.util.privilegedactions.NewSchema;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.Arrays;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-
-import java.util.Arrays;
-
 import org.mockito.runners.MockitoJUnitRunner;
 
 import spring.studentmanager.model.Student;
@@ -33,7 +34,7 @@ public class StudentServiceImplTest {
 		assertEquals(expected, studentServiceImpl.findById(1));
 	}
 	
-	@Test
+	@Test	
 	public void testFindByIdWhenStudentNotFound() {
 		when(studentRepository.findById(1)).thenReturn(null);
 		assertNull(studentServiceImpl.findById(1));
